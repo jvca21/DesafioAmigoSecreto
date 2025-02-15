@@ -62,8 +62,3 @@ João Vitor.
 
 
 
-Este é o projeto que estou desenvolvendo...
-
-
-
-
