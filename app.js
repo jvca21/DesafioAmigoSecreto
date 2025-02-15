@@ -7,7 +7,7 @@ function adicionarAmigo (){
     amigo = document.querySelector('input').value;
 
     if(amigo == '' || nome.includes(amigo)){
-        alert('Envie um nome valido');
+        alert('Por favor, insira um nome.');
     }
     else{
     nome.push(amigo);
@@ -41,16 +41,15 @@ function atualizarLista() {
 }
 function gerarIndiceAleatorio (){
     let TamanhoDaLista = nome.length;
-    let indiceAleatorio = parseInt(Math.random() * (TamanhoDaLista - 1) + 1);
-    console.log(TamanhoDaLista);
-    console.log(indiceAleatorio);
+    let indiceAleatorio = parseInt(Math.random() * (TamanhoDaLista));
     return indiceAleatorio;
 }
 function sortearAmigo(){
         let indice = gerarIndiceAleatorio();
         limparLista('listaAmigos');
-        let teste = document.getElementById('resultado');
-        teste.innerHTML = nome[indice];
+        let mensagemFinal = document.getElementById('resultado');
+        let texto = `O Amigo Secreto é : ${nome[indice]}`;
+        mensagemFinal.innerHTML = texto;
 
 }
 function limparLista(tag){
