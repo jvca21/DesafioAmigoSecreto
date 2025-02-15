@@ -1,5 +1,6 @@
 let nome = [];
 let amigo = '';
+let limpar;
 function adicionarAmigo (){
 
 
@@ -13,6 +14,7 @@ function adicionarAmigo (){
     console.log(nome);
     atualizarLista();
     }
+    limparLista('resultado');
     limparEntrada();
 
     
@@ -26,17 +28,33 @@ function limparEntrada()
 
 function atualizarLista() {
     
-    let nomesDeAmigos = document.querySelector('#listaAmigos');
+    limparLista('listaAmigos');
+
+    for(let i = 0; i < nome.length; i++){
+        let elemento = document.createElement('li');
+        elemento.textContent = nome[i];
+        limpar.appendChild(elemento);
+
+    }
+
     
-    // Limpa a lista antes de adicionar novos itens
-    nomesDeAmigos.innerHTML = '';
-
-    // Percorre o array de amigos e cria um <li> para cada nome
-    nome.forEach(function(amigo) {
-        let li = document.createElement('li'); // Cria o <li>
-        li.textContent = amigo; // Adiciona o nome ao <li>
-        nomesDeAmigos.appendChild(li); // Adiciona o <li> à lista
-    });
 }
+function gerarIndiceAleatorio (){
+    let TamanhoDaLista = nome.length;
+    let indiceAleatorio = parseInt(Math.random() * (TamanhoDaLista - 1) + 1);
+    console.log(TamanhoDaLista);
+    console.log(indiceAleatorio);
+    return indiceAleatorio;
+}
+function sortearAmigo(){
+        let indice = gerarIndiceAleatorio();
+        limparLista('listaAmigos');
+        let teste = document.getElementById('resultado');
+        teste.innerHTML = nome[indice];
 
+}
+function limparLista(tag){
+        limpar = document.getElementById(tag);
+        limpar.innerHTML = '';
+}
 
